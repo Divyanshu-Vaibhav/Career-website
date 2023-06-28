@@ -14,27 +14,17 @@
      <h1 class="text-center mt-2 mb-4">Careers at Steam</h1>
     <img class="img-fluid" src="static/banner.jpg" height='320'>
     <h2 class="text-center mt-3 mb-3">About Steam</h2>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. 
+    <p class="lead">Steam is a video game digital distribution service and storefront from Valve. It was launched as a software client in September 2003 to provide game updates automatically for Valve's games, and expanded to distributing third-party titles in late 2005.
 </p>
     <h2 class="text-center mt-2 mb-4">Open positions</h2>
     <p>
       <div>
       {%for job in jobs%}
-      <div style="margin-bottom:16px">
-        <div>
-        <h4 style="color:rgb(120,120,120); margin-bottom:4px">{{job['title']}}</h4>
-        </div>
-        <div>
-        <b>Location:
-        </b>{{job['location']}}
-          </div>
-          <div>
-        <b>Salary:</b>{{job['salary']}}
-            </div>
-      </div>
+     {% include 'jobitem.html' %}
       {% endfor %}
       </div>
     </p>
+     
    <div style="text-align:center;">
      <button class="btn btn-primary mb-4">Contact Us</button >
    </div>
