@@ -1,13 +1,14 @@
-
 from sqlalchemy import create_engine, text
 
+import os
 
-engine = create_engine("mysql+pymysql://zralbx0ptj8mnr1d3r8j:pscale_pw_PQ9n3SHHkeO6FIGwkulMUsTit6Dgin8fbqqascoYvq2@aws.connect.psdb.cloud/steamcareers?charset=utf8mb4",connect_args={
-        "ssl": {
-            "ssl_ca": "/etc/ssl/cert.pem",
-           
-        }
-    })
+my_secret = os.environ['DB_CON']
+db_con = my_secret[1:-1]
+engine = create_engine(db_con,
+                       connect_args={"ssl": {
+                         "ssl_ca": "/etc/ssl/cert.pem",
+                       }})
+
 
 def load_jobs_from_db():
   with engine.connect() as conn:
