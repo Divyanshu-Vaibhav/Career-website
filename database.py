@@ -39,19 +39,16 @@ def load_job_from_db(id):
       return result_dicts
 
 
-
-
 def add_applcn_to_db(id, data):
-    with engine.connect() as conn:
-        query = text(
-            "INSERT INTO applications (full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (:full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)"
-        )
+  with engine.connect() as conn:
+    query = text(
+      "INSERT INTO applications (full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (:full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)"
+    )
 
-        conn.execute(query,
-                     full_name=data['full_name'],
-                     email=data['email'],
-                     linkedin_url=data['linkedin_url'],
-                     education=data['education'],
-                     work_experience=data['work_experience'],
-                     resume_url=data['resume_url'])
-
+    conn.execute(query,
+                 full_name=data['full_name'],
+                 email=data['email'],
+                 linkedin_url=data['linkedin_url'],
+                 education=data['education'],
+                 work_experience=data['work_experience'],
+                 resume_url=data['resume_url'])
