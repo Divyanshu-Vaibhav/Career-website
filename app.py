@@ -21,7 +21,7 @@ def show_job(id):
 @app.route("/job/<id>/apply", methods=['post'])
 def applying_for_job(id):
   Data = request.form
-  add_applcn_to_db(id,Data)
+  #add_applcn_to_db(id,Data)
   return render_template('submitted.html',data=Data)
 
   #return jsonify(data)
